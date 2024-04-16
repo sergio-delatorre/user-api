@@ -22,7 +22,7 @@ public class User extends Auditable {
     @Column(nullable = false)
     private UUID token;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Phone> phones = new ArrayList<>();
 
     public String getName() {

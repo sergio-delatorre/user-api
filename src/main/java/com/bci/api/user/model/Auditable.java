@@ -17,11 +17,11 @@ public class Auditable {
     private UUID id;
 
     @CreatedDate
-    @Column(name = "created", nullable = false, updatable = false)
+    @Column(name = "created", updatable = false)
     private LocalDateTime created;
 
     @LastModifiedDate
-    @Column(name = "modified", nullable = false)
+    @Column(name = "modified")
     private LocalDateTime modified;
 
 

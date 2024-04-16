@@ -15,7 +15,7 @@ public class Phone extends Auditable {
     @Column(nullable = false)
     private String countryCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
