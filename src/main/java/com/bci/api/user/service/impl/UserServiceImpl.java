@@ -1,17 +1,16 @@
 package com.bci.api.user.service.impl;
 
 import com.bci.api.user.dto.AddedUserDto;
-import com.bci.api.user.dto.PhoneDto;
 import com.bci.api.user.dto.UserDto;
 import com.bci.api.user.model.Phone;
 import com.bci.api.user.model.User;
 import com.bci.api.user.repository.UserRepository;
 import com.bci.api.user.service.UserService;
-import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;

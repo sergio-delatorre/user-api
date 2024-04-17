@@ -1,6 +1,6 @@
 package com.bci.api.user.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "phones")

@@ -1,7 +1,6 @@
 package com.bci.api.user.model;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
