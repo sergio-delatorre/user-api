@@ -16,28 +16,28 @@ public class GlobalHandlerException {
 
     @ExceptionHandler(value = {ResourceNotFoundException.class})
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ErrorMessage resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
-        return new ErrorMessage(ex.getMessage()+" - "+ request.getDescription(false));
+    public ErrorResponse resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+        return new ErrorResponse(ex.getMessage()+" - "+ request.getDescription(false));
     }
 
     @ExceptionHandler(value = {UnprocessableEntityException.class})
     @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
-    public ErrorMessage unprocessedEntityException(UnprocessableEntityException ex) {
-        return new ErrorMessage(ex.getMessage());
+    public ErrorResponse unprocessedEntityException(UnprocessableEntityException ex) {
+        return new ErrorResponse(ex.getMessage());
     }
 
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ErrorMessage constraintViolationException(MethodArgumentNotValidException ex) {
+    public ErrorResponse constraintViolationException(MethodArgumentNotValidException ex) {
         String message = ex.getBindingResult().getFieldErrors().stream()
                 .map(error -> error.getDefaultMessage() + " - Field: " + error.getField())
                 .collect(Collectors.joining(" | "));
-        return new ErrorMessage(message);
+        return new ErrorResponse(message);
     }
 
     @ExceptionHandler(value = {AccessDeniedException.class})
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
-    public ErrorMessage accessDeniedException(AccessDeniedException ex) {
-        return new ErrorMessage("Acceso denegado: " + ex.getMessage());
+    public ErrorResponse accessDeniedException(AccessDeniedException ex) {
+        return new ErrorResponse("Acceso denegado: " + ex.getMessage());
     }
 }

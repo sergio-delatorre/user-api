@@ -1,4 +1,4 @@
-package com.bci.api.user.dto;
+package com.bci.api.user.model.dto;
 
 public class ValidationRegex {
 

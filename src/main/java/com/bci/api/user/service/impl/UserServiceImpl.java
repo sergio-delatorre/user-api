@@ -1,11 +1,11 @@
 package com.bci.api.user.service.impl;
 
-import com.bci.api.user.dto.AddedUserDto;
-import com.bci.api.user.dto.UserDto;
 import com.bci.api.user.exception.ResourceNotFoundException;
 import com.bci.api.user.exception.UnprocessableEntityException;
-import com.bci.api.user.model.Phone;
-import com.bci.api.user.model.User;
+import com.bci.api.user.model.dto.AddedUserDto;
+import com.bci.api.user.model.dto.UserDto;
+import com.bci.api.user.model.entity.Phone;
+import com.bci.api.user.model.entity.User;
 import com.bci.api.user.repository.UserRepository;
 import com.bci.api.user.security.JwtTokenProvider;
 import com.bci.api.user.service.UserService;

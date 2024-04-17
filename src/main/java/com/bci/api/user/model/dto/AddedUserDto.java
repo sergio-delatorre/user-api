@@ -1,4 +1,4 @@
-package com.bci.api.user.dto;
+package com.bci.api.user.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

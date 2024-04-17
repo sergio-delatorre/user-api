@@ -1,7 +1,7 @@
 package com.bci.api.user.service;
 
-import com.bci.api.user.dto.AddedUserDto;
-import com.bci.api.user.dto.UserDto;
+import com.bci.api.user.model.dto.AddedUserDto;
+import com.bci.api.user.model.dto.UserDto;
 
 import java.util.List;
 

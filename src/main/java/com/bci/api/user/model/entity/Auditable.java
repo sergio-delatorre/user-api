@@ -1,4 +1,4 @@
-package com.bci.api.user.model;
+package com.bci.api.user.model.entity;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 

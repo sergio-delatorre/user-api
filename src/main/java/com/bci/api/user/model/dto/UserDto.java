@@ -1,4 +1,4 @@
-package com.bci.api.user.dto;
+package com.bci.api.user.model.dto;
 
 import lombok.*;
 
@@ -24,9 +24,6 @@ public class UserDto {
     @Size(min = 6, message = "Password must be at least 6 characters long")
     @Pattern(regexp = ValidationRegex.PASSWORD_REGEX, message = "Invalid password format")
     private String password;
-
-    @NotNull(message = "Token cannot be null")
-    private String token;
 
     @Valid
     private List<PhoneDto> phones;
