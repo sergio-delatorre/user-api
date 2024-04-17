@@ -22,7 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/users/sign-up", "/swagger-ui/**","/v2/**","/h2-console/**").permitAll()
+                .antMatchers("/users/sign-up", "/swagger-ui/**","/v2/**","/api/**","/h2-console/**"
+                    ,"/swagger-resources/**","/webjars/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         http.headers().frameOptions().disable();

@@ -1,6 +1,7 @@
 package com.bci.api.user.security;
 
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -37,9 +38,11 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 
         String token = extractToken((HttpServletRequest) req);
         if (token != null && !token.isEmpty() && jwtTokenProvider.validateToken(token)) {
-            SecurityContextHolder.getContext().setAuthentication(
-                    new AnonymousAuthenticationToken("JWT", "anonymousUser",
-                            AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS")));
+            Authentication authentication = new UsernamePasswordAuthenticationToken(
+                    "defaultUser", null, AuthorityUtils.createAuthorityList("ROLE_USER"));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        }else{
+            SecurityContextHolder.clearContext();
         }
         filterChain.doFilter(req, res);
     }
