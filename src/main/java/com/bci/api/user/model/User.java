@@ -19,7 +19,7 @@ public class User extends Auditable {
     private String password;
 
     @Column(nullable = false)
-    private UUID token;
+    private String token;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Phone> phones = new ArrayList<>();
@@ -48,11 +48,11 @@ public class User extends Auditable {
         this.password = password;
     }
 
-    public UUID getToken() {
+    public String getToken() {
         return token;
     }
 
-    public void setToken(UUID token) {
+    public void setToken(String token) {
         this.token = token;
     }
 

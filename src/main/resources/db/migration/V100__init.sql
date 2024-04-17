@@ -7,7 +7,7 @@ CREATE TABLE users (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    token UUID NOT NULL,
+    token VARCHAR(255) NOT NULL,
     created TIMESTAMP,
     modified TIMESTAMP
     );
@@ -27,11 +27,15 @@ ALTER TABLE phones
         REFERENCES users(id) ON DELETE CASCADE;
 
 
-INSERT INTO users (id, name, email, password, token, created, modified) VALUES
-    ('d3a9a9f1-eb11-4fd4-9f5d-dbd579dd16d1', 'Usuario 1', 'usuario1@example.com', 'password1', 'e98c8e53-697e-488b-8b7b-134c8f23e1c4', CURRENT_TIMESTAMP, NULL);
+INSERT INTO users (id, name, email, password
+                , token, created, modified) VALUES
+    ('d3a9a9f1-eb11-4fd4-9f5d-dbd579dd16d1', 'Usuario 1', 'usuario1@example.com', 'password1'
+    , 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzEzMzczMDIwLCJleHAiOjE3MTMzNzY2MjB9.nOptypJiuvByM1Qgfjdesy6jGUy4ylOBMmp23ICU1aY', CURRENT_TIMESTAMP, NULL);
 
-INSERT INTO users (id, name, email, password, token, created, modified) VALUES
-    ('9baa161a-66ab-494e-8162-5f916e4e1a51', 'Usuario 2', 'usuario2@example.com', 'password2', '352daa35-f17b-4e22-b4e4-d9a9c0db75b8', CURRENT_TIMESTAMP, NULL);
+INSERT INTO users (id, name, email, password
+                , token, created, modified) VALUES
+    ('9baa161a-66ab-494e-8162-5f916e4e1a51', 'Usuario 2', 'usuario2@example.com', 'password2'
+    , 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzEzMzczMTc5LCJleHAiOjE3MTMzNzY3Nzl9.0VulIeSdmjYcFD2Z8aWnhfFdw8BdF_O_Lo0zZcbRV9A', CURRENT_TIMESTAMP, NULL);
 
 INSERT INTO phones (id, number, city_code, country_code, user_id, created, modified) VALUES
     ('89e46f57-4f14-4687-b720-93b9af48c3a2', '123456789', '123', '456', 'd3a9a9f1-eb11-4fd4-9f5d-dbd579dd16d1', CURRENT_TIMESTAMP, NULL);
