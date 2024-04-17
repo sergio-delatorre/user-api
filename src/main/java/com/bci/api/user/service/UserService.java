@@ -10,4 +10,6 @@ public interface UserService {
     AddedUserDto create(UserDto userDto);
 
     List<UserDto> getAll();
+
+    UserDto findById(String id);
 }

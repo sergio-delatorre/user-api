@@ -1,7 +1,5 @@
 package com.bci.api.user.model;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -16,13 +14,21 @@ public class Auditable {
     @GeneratedValue
     private UUID id;
 
-    @CreatedDate
     @Column(name = "created", updatable = false)
     private LocalDateTime created;
 
-    @LastModifiedDate
     @Column(name = "modified")
     private LocalDateTime modified;
+
+    @PrePersist
+    protected void onCreate() {
+        created = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modified = LocalDateTime.now();
+    }
 
 
     public UUID getId() {

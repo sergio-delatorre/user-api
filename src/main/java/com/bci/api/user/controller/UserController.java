@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-@Api(tags = "Endpoints for managing users")
+@Api(tags = "Users")
 public class UserController {
 
     private final UserService userService;
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    @ApiOperation(value = "Create a new user", notes = "Creates a new user with the provided data")
+    @ApiOperation(value = "Create a new user", notes = "Creates a new user with the provided phones")
     public ResponseEntity<AddedUserDto> create(@RequestBody @Valid UserDto userDto){
         AddedUserDto addedUserDto = userService.create(userDto);
         return new ResponseEntity<>(addedUserDto, HttpStatus.CREATED);
@@ -38,8 +38,11 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> test() {
-        return ResponseEntity.ok("Token válido");
+    @GetMapping("{id}")
+    @ApiOperation(value = "Get by Id", notes = "Returns a User by its identifier")
+    public ResponseEntity<UserDto> getById(@PathVariable("id") String userId) {
+        UserDto userDto = userService.findById(userId);
+        return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
+
 }

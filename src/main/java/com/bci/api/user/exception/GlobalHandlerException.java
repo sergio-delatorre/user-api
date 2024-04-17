@@ -20,6 +20,12 @@ public class GlobalHandlerException {
         return new ErrorMessage(ex.getMessage()+" - "+ request.getDescription(false));
     }
 
+    @ExceptionHandler(value = {UnprocessableEntityException.class})
+    @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
+    public ErrorMessage unprocessedEntityException(UnprocessableEntityException ex) {
+        return new ErrorMessage(ex.getMessage());
+    }
+
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ErrorMessage constraintViolationException(MethodArgumentNotValidException ex) {
