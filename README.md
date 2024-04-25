@@ -2,12 +2,16 @@
 
 API RESTful de creación de Usuarios
 
+## Diagrama
+![Diagrama de Secuencia](src/main/resources/images/Diagrama de Secuencia.png)
+
 ## Requisitos
 Para la ejecución de este proyecto se debe tener instalado:
 - Java 11
 - Maven
 
 ## Ejecución
+### Aplicación
 1. Descargar o clonar el repositorio
 2. Navegar al directorio raíz del proyecto
 ```
@@ -19,6 +23,13 @@ $ mvn spring-boot:run
 ```
 4. URL para ver la documentación en Swagger:  
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+### Tests
+Para ejecutar los tests usar el siguiente comando en la raiz del proyecto:
+```
+$ mvn test
+```
+
 
 ## Endpoints
 - `GET /users` Listar todos los usuarios 
