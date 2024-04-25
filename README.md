@@ -3,7 +3,7 @@
 API RESTful de creación de Usuarios
 
 ## Diagrama
-![Diagrama de Secuencia](src/main/resources/images/Diagrama de Secuencia.png)
+![Diagrama de Secuencia](src/main/resources/images/Diagrama%20de%20Secuencia.png)
 
 ## Requisitos
 Para la ejecución de este proyecto se debe tener instalado:
